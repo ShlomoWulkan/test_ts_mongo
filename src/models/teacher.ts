@@ -34,7 +34,8 @@ const TeacherSchema = new Schema<ITeacher>({
   },
   className: {
      type: String,
-    required: true
+    required: true,
+    unique: true
   },
   role: {
     type: String,

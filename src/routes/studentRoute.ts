@@ -1,4 +1,6 @@
 import { Router } from "express";
+import { createStudent } from "../controllers/studentsController";
+import { onlyStudents } from "../middlewares/authMiddlewares";
 
 const studentRoute = Router();
 
@@ -21,7 +23,7 @@ const studentRoute = Router();
  *       400:
  *         description: Bad request
  */
-studentRoute.post("/register", () => {});
+studentRoute.post("/register", createStudent);
 
 /**
  * @swagger
@@ -41,6 +43,6 @@ studentRoute.post("/register", () => {});
  *       404:
  *         description: Student not found
  */
-studentRoute.get("/grade", () => {});
+studentRoute.get("/grade", onlyStudents, () => {});
 
 export default studentRoute;

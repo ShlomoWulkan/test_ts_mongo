@@ -1,3 +1,4 @@
+import { Request } from './../../node_modules/@types/express-serve-static-core/index.d';
 import { Request, Response } from "express";
 import Teacher  from "../models/teacher";
 import validator from "validator";
@@ -34,7 +35,3 @@ export const createTeacher = async (
         res.status(500).json({ message: error });
     }
 };
-
-
-
-

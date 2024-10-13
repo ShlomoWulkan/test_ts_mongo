@@ -1,11 +1,12 @@
 import { Router } from "express";
+import { login, logout } from "../controllers/authController";
 
 
 const authRouter = Router();
 
 /**
  * @swagger
- * /login:
+ * /auth/login:
  *   post:
  *     summary: User login
  *     tags: [Authentication]
@@ -25,11 +26,11 @@ const authRouter = Router();
  *       401:
  *         description: Invalid credentials
  */
-authRouter.post("/login", () => {});
+authRouter.post("/login", login);
 
 /**
  * @swagger
- * /logout:
+ * /auth/logout:
  *   delete:
  *     summary: User logout
  *     tags: [Authentication]
@@ -39,6 +40,6 @@ authRouter.post("/login", () => {});
  *       401:
  *         description: Not authenticated
  */
-authRouter.delete("/logout", () => {});
+authRouter.delete("/logout", logout);
 
 export default authRouter;

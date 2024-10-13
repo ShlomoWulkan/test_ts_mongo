@@ -44,13 +44,8 @@ const swaggerOptions = {
         },
         Student: {
           type: 'object',
-          required: ['username', 'password', 'email', 'class'],
+          required: ['username', 'password', 'email', 'className'],
           properties: {
-            _id: {
-              type: 'string',
-              description: "Student's unique identifier",
-              example: '60d0fe4f5311236168a109cc',
-            },
             username: {
               type: 'string',
               description: "Student's username",
@@ -66,42 +61,10 @@ const swaggerOptions = {
               description: "Student's email",
               example: 'student@example.com',
             },
-            grades: {
-              type: 'array',
-              items: {
-                $ref: '#/components/schemas/Grade',
-              },
-              description: 'List of grades for the student',
-            },
-            class: {
+            className: {
               type: 'string',
               description: 'ID of the class assigned to the student',
-              example: '60d0fe4f5311236168a109cb',
-            },
-            avg: {
-              type: 'number',
-              description: 'Average grade of the student',
-              example: 90,
-            },
-            role: {
-              type: 'string',
-              description: "Student's role",
-              default: 'student',
-            },
-          },
-        },
-        Grade: {
-          type: 'object',
-          properties: {
-          examName: {
-            type: 'string',
-            description: 'Name of the exam',
-            example: 'Math Exam',
-          },
-          score: {
-            type: 'number',
-            description: 'Score of the exam',
-            example: 95,
+              example: 'my-class',
             },
           },
         },

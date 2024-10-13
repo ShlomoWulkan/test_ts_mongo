@@ -2,6 +2,7 @@ import { Router } from "express";
 import { 
     createTeacher
 } from "../controllers/teacherController";
+import { onlyTeachers } from "../middlewares/authMiddlewares";
 
 
 const teacherRoute = Router();
@@ -44,7 +45,7 @@ teacherRoute.post("/register", createTeacher);
  *       500:
  *         description: Server error
  */
-teacherRoute.get("/students", () => {});
+teacherRoute.get("/students", onlyTeachers, () => {});
 
 /**
  * @swagger
@@ -76,7 +77,7 @@ teacherRoute.get("/students", () => {});
  *       404:
  *         description: Student not found
  */
-teacherRoute.post("/grades/:studentId", () => {});
+teacherRoute.post("/grades/:studentId", onlyTeachers, () => {});
 
 /**
  * @swagger
@@ -108,7 +109,7 @@ teacherRoute.post("/grades/:studentId", () => {});
  *       404:
  *         description: Student not found
  */
-teacherRoute.put("/grades/:studentId", () => {});
+teacherRoute.put("/grades/:studentId", onlyTeachers, () => {});
 
 /**
  * @swagger
@@ -137,7 +138,7 @@ teacherRoute.put("/grades/:studentId", () => {});
  *       404:
  *         description: Student not found
  */
-teacherRoute.get("/average/:studentId", () => {});
+teacherRoute.get("/average/:studentId", onlyTeachers, () => {});
 
 /**
  * @swagger
@@ -157,7 +158,7 @@ teacherRoute.get("/average/:studentId", () => {});
  *                   type: number
  *                   description: The average grade of the class
  */
-teacherRoute.get("/classAverage", () => {});
+teacherRoute.get("/classAverage", onlyTeachers, () => {});
 
 /**
  * @swagger
@@ -182,6 +183,6 @@ teacherRoute.get("/classAverage", () => {});
  *       404:
  *         description: Student not found
  */
-teacherRoute.get("/grade/:studentId", () => {});
+teacherRoute.get("/grade/:studentId", onlyTeachers, () => {});
 
 export default teacherRoute;
