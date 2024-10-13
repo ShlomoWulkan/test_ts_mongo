@@ -7,9 +7,13 @@ interface IStudent extends Document {
     password: string;
     email: string;
     grades: [{
-        testName: string;
-        score: number;
-    }]
+    examName: {
+        type: String,
+    },
+    score: {
+        type: Number,
+    }
+    }],
     class: Types.ObjectId;
     avg: number;
     role: string;
