@@ -12,7 +12,8 @@ const ClassSchema = new Schema({
     },
     students: [{
         type: Types.ObjectId,
-        ref: "Student"
+        ref: "Student",
+        default: []
     }]
 });
 

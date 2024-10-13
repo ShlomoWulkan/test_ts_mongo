@@ -5,7 +5,7 @@ const studentRoute = Router();
 
 /**
  * @swagger
- * /reister:
+ * /student/register:
  *   post:
  *     summary: Register a new student
  *     tags: [Student]
@@ -25,7 +25,7 @@ studentRoute.post("/register", () => {});
 
 /**
  * @swagger
- * /grade:
+ * /student/grade:
  *   get:
  *     summary: Get student's grades
  *     tags: [Student]

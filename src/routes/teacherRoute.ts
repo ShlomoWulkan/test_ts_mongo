@@ -1,11 +1,14 @@
 import { Router } from "express";
+import { 
+    createTeacher
+} from "../controllers/teacherController";
 
 
 const teacherRoute = Router();
 
 /**
  * @swagger
- * /register:
+ * /teacher/register:
  *   post:
  *     summary: Register a new teacher
  *     tags: [Teacher]
@@ -21,11 +24,11 @@ const teacherRoute = Router();
  *       400:
  *         description: Bad request
  */
-teacherRoute.post("/register", () => {});
+teacherRoute.post("/register", createTeacher);
 
 /**
  * @swagger
- * /students:
+ * /teacher/students:
  *   get:
  *     summary: Get all students
  *     tags: [Teacher]
@@ -45,7 +48,7 @@ teacherRoute.get("/students", () => {});
 
 /**
  * @swagger
- * /grades/{studentId}:
+ * /teacher/grades/{studentId}:
  *   post:
  *     summary: Add grades for a student
  *     tags: [Teacher]
@@ -77,7 +80,7 @@ teacherRoute.post("/grades/:studentId", () => {});
 
 /**
  * @swagger
- * /grades/{studentId}:
+ * /teacher/grades/{studentId}:
  *   put:
  *     summary: Update grades for a student
  *     tags: [Teacher]
@@ -109,7 +112,7 @@ teacherRoute.put("/grades/:studentId", () => {});
 
 /**
  * @swagger
- * /average/{studentId}:
+ * /teacher/average/{studentId}:
  *   get:
  *     summary: Get the average grade for a student
  *     tags: [Teacher]
@@ -138,7 +141,7 @@ teacherRoute.get("/average/:studentId", () => {});
 
 /**
  * @swagger
- * /classAverage:
+ * /teacher/classAverage:
  *   get:
  *     summary: Get the average grade for the class
  *     tags: [Teacher]
@@ -158,7 +161,7 @@ teacherRoute.get("/classAverage", () => {});
 
 /**
  * @swagger
- * /grade/{studentId}:
+ * /teacher/grade/{studentId}:
  *   get:
  *     summary: Get grades for a student
  *     tags: [Teacher]

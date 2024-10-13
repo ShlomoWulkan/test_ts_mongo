@@ -6,8 +6,9 @@ export interface ITeacher extends Document {
   username: string;
   password: string;
   email: string;
-  class: Types.ObjectId;
+  className: string;
   role: string;
+  students: Types.ObjectId[]
 };
 
 
@@ -31,14 +32,21 @@ const TeacherSchema = new Schema<ITeacher>({
       message: "Invalid email format"
     }
   },
-  class: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Class"
+  className: {
+     type: String,
+    required: true
   },
   role: {
     type: String,
     default: "teacher"
-  }
+  },
+  students: [{
+    type: Types.ObjectId,
+    ref: "Student",
+    default: []
+  }]
 });
 
 export default mongoose.model<ITeacher>("Teacher", TeacherSchema);
+
+

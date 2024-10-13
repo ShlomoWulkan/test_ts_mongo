@@ -18,13 +18,8 @@ const swaggerOptions = {
       schemas: {
         Teacher: {
           type: 'object',
-          required: ['username', 'password', 'email'],
+          required: ['username', 'password', 'email', 'className'], 
           properties: {
-            _id: {
-              type: 'string',
-              description: "Teacher's unique identifier",
-              example: '60d0fe4f5311236168a109ca',
-            },
             username: {
               type: 'string',
               description: "Teacher's username",
@@ -40,15 +35,10 @@ const swaggerOptions = {
               description: "Teacher's email",
               example: 'teacher@example.com',
             },
-            class: {
+            className: {
               type: 'string',
-              description: 'ID of the class assigned to the teacher',
-              example: '60d0fe4f5311236168a109cb',
-            },
-            role: {
-              type: 'string',
-              description: "Teacher's role",
-              default: 'teacher',
+              description: 'Name of the class',
+              example: 'my-class',
             },
           },
         },
@@ -112,35 +102,6 @@ const swaggerOptions = {
             type: 'number',
             description: 'Score of the exam',
             example: 95,
-            },
-          },
-        },
-        Class: {
-          type: 'object',
-          required: ['name'],
-          properties: {
-            _id: {
-              type: 'string',
-              description: "Class's unique identifier",
-              example: '60d0fe4f5311236168a109cb',
-            },
-            name: {
-              type: 'string',
-              description: 'Name of the class',
-              example: 'Class A',
-            },
-            teacher: {
-              type: 'string',
-              description: 'ID of the teacher assigned to the class',
-              example: '60d0fe4f5311236168a109ca',
-            },
-            students: {
-              type: 'array',
-              items: {
-                type: 'string',
-                description: 'List of student IDs assigned to the class',
-              },
-              description: 'List of students in the class',
             },
           },
         },
