@@ -2,15 +2,19 @@ import mongoose, { Schema, Document, Types } from "mongoose";
 import validator from 'validator';
 
 
-interface IStudent extends Document {
+export interface IStudent extends Document {
     username: string;
     password: string;
     email: string;
     grades: [{
-        testName: string;
-        score: number;
-    }]
-    class: Types.ObjectId;
+    examName: {
+        type: String,
+    },
+    score: {
+        type: Number,
+    }
+    }],
+    className: string;
     avg: number;
     role: string;
 }
@@ -44,8 +48,8 @@ const StudentSchema = new Schema<IStudent>({
       required: true
     }
   }],
-  class: {
-    type: mongoose.Schema.Types.ObjectId,
+  className: {
+    type: String,
     ref: "Class",
     required: true
   },
